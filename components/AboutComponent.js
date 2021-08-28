@@ -13,7 +13,6 @@ function Mission() {
     );
 }
 
-
 class About extends Component {
     constructor(props) {
         super(props)
@@ -21,6 +20,7 @@ class About extends Component {
             partners: PARTNERS
         }
     }
+    
     static navigationOptions = {
         title: 'About Us'
     }
