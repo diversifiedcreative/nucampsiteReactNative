@@ -22,18 +22,6 @@ class Reservation extends Component {
 
     handleReservation() {
         console.log(JSON.stringify(this.state));
-    }
-
-    resetForm() {
-        this.setState({
-            campers: 1,
-            hikeIn: false,
-            date: new Date(),
-            showCalendar: false,
-        });
-    }
-
-    submitAlert() {
         Alert.alert(
             'Begin Search?',
             'Number of Campers: ' + this.state.campers + '\n\n' + 'Hike-In?: ' + this.state.hikeIn + '\n\n' + 'Date: ' + this.state.date.toLocaleDateString('en-US'),
@@ -48,7 +36,16 @@ class Reservation extends Component {
                     onPress: this.resetForm()
                 }
             ]
-        )
+        );
+    }
+
+    resetForm() {
+        this.setState({
+            campers: 1,
+            hikeIn: false,
+            date: new Date(),
+            showCalendar: false,
+        });
     }
 
     render() {
@@ -107,7 +104,7 @@ class Reservation extends Component {
                     )}
                     <View style={styles.formRow}>
                         <Button
-                            onPress={() => this.submitAlert()}
+                            onPress={() => this.handleReservation()}
                             title='Search'
                             color='#5637DD'
                             accessibilityLabel='Tap me to search for available campsites to reserve'
